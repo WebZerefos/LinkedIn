@@ -10,7 +10,7 @@ import Colors from '@/src/constants/Colors'
 function TabBarIcon(props: { name: React.ComponentProps<typeof FontAwesome>['name']; color: string }) {
 	return (
 		<FontAwesome
-			size={28}
+			size={24}
 			style={{ marginBottom: -3 }}
 			{...props}
 		/>
@@ -23,16 +23,16 @@ export default function TabLayout() {
 	return (
 		<Tabs
 			screenOptions={{
-				tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+				tabBarActiveTintColor: '#191919',
 			}}
 		>
 			<Tabs.Screen
 				name='index'
 				options={{
-					title: 'Tab One',
+					title: 'Home Feed',
 					tabBarIcon: ({ color }) => (
 						<TabBarIcon
-							name='code'
+							name='home'
 							color={color}
 						/>
 					),
@@ -56,12 +56,48 @@ export default function TabLayout() {
 				}}
 			/>
 			<Tabs.Screen
-				name='two'
+				name='network'
 				options={{
-					title: 'Tab Two',
+					title: 'My Network',
 					tabBarIcon: ({ color }) => (
 						<TabBarIcon
-							name='code'
+							name='group'
+							color={color}
+						/>
+					),
+				}}
+			/>
+			<Tabs.Screen
+				name='new-post'
+				options={{
+					title: 'Post',
+					tabBarIcon: ({ color }) => (
+						<TabBarIcon
+							name='plus-square'
+							color={color}
+						/>
+					),
+				}}
+			/>
+			<Tabs.Screen
+				name='notifications'
+				options={{
+					title: 'Notifications',
+					tabBarIcon: ({ color }) => (
+						<TabBarIcon
+							name='bell'
+							color={color}
+						/>
+					),
+				}}
+			/>
+			<Tabs.Screen
+				name='jobs'
+				options={{
+					title: 'Jobs',
+					tabBarIcon: ({ color }) => (
+						<TabBarIcon
+							name='briefcase'
 							color={color}
 						/>
 					),
