@@ -1,13 +1,13 @@
 import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
 import React, { useLayoutEffect, useState } from 'react'
-import { useLocalSearchParams, useNavigation } from 'expo-router'
+import { useNavigation } from 'expo-router'
 import userJson from '@/src/data/user.json'
 import ExperienceItem from '@/src/components/ExperienceItem'
 import { User } from '@/src/types'
 
 const UserProfile = () => {
 	const [user, setUser] = useState<User>(userJson)
-	// const { id } = useLocalSearchParams()
+
 	const navigation = useNavigation()
 
 	useLayoutEffect(() => {
