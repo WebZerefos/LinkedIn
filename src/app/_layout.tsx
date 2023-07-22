@@ -60,6 +60,10 @@ function RootLayoutNav() {
 					name='posts/[id]'
 					options={{ title: 'Post' }}
 				/>
+				<Stack.Screen
+					name='users/[id]'
+					options={{ title: 'Profile' }}
+				/>
 			</Stack>
 		</ThemeProvider>
 	)

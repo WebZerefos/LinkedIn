@@ -12,4 +12,7 @@ export type User = {
 	name: string
 	image?: string
 	position: string
+	backImage?: string
+	about?: string
+	// experience: [{ string: string }]
 }
