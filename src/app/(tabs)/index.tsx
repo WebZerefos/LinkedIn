@@ -1,15 +1,15 @@
-import { StyleSheet } from 'react-native'
+import { FlatList, StyleSheet } from 'react-native'
+import { View } from '@/src/components/Themed'
+import PostListItem from '@/src/components/PostListItem'
 
-import { Text, View } from '@/src/components/Themed'
+import posts from '@/src/data/posts.json'
 
 export default function TabOneScreen() {
 	return (
 		<View style={styles.container}>
-			<Text style={styles.title}>Tab One</Text>
-			<View
-				style={styles.separator}
-				lightColor='#eee'
-				darkColor='rgba(255,255,255,0.1)'
+			<FlatList
+				data={posts}
+				renderItem={({ item }) => <PostListItem post={item} />}
 			/>
 		</View>
 	)
@@ -18,7 +18,6 @@ export default function TabOneScreen() {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		alignItems: 'center',
 		justifyContent: 'center',
 	},
 	title: {
@@ -31,3 +30,4 @@ const styles = StyleSheet.create({
 		width: '80%',
 	},
 })
+// 1:22:14

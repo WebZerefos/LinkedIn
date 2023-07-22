@@ -10,7 +10,7 @@ import Colors from '@/src/constants/Colors'
 function TabBarIcon(props: { name: React.ComponentProps<typeof FontAwesome>['name']; color: string }) {
 	return (
 		<FontAwesome
-			size={24}
+			size={20}
 			style={{ marginBottom: -3 }}
 			{...props}
 		/>
@@ -29,7 +29,7 @@ export default function TabLayout() {
 			<Tabs.Screen
 				name='index'
 				options={{
-					title: 'Home Feed',
+					title: 'Feed',
 					tabBarIcon: ({ color }) => (
 						<TabBarIcon
 							name='home'
