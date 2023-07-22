@@ -1,7 +1,7 @@
 export type Post = {
 	id: string
 	image?: string
-	comments?: [string]
+	// comments?: [string]
 	content: string
 	likes: number
 	author: User
