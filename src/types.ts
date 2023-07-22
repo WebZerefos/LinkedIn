@@ -14,5 +14,12 @@ export type User = {
 	position: string
 	backImage?: string
 	about?: string
-	// experience: [{ string: string }]
+	experience?: Experience[]
+}
+
+export type Experience = {
+	id: string
+	title: string
+	companyName: string
+	companyImage?: string
 }

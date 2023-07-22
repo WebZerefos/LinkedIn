@@ -7,7 +7,7 @@ import { User } from '@/src/types'
 
 const UserProfile = () => {
 	const [user, setUser] = useState<User>(userJson)
-	const { id } = useLocalSearchParams()
+	// const { id } = useLocalSearchParams()
 	const navigation = useNavigation()
 
 	useLayoutEffect(() => {
@@ -15,7 +15,7 @@ const UserProfile = () => {
 	}, [user?.name])
 
 	return (
-		<ScrollView>
+		<ScrollView showsVerticalScrollIndicator={false}>
 			{/* header */}
 			<View style={styles.headerContainer}>
 				<Image
@@ -45,12 +45,15 @@ const UserProfile = () => {
 
 			{/* experience */}
 			<View style={styles.experienceContainer}>
-				{/* <View style={styles.aboutContent}>
+				<View style={styles.aboutContent}>
 					<Text style={styles.title}>Experience</Text>
-					{user.experience.map((experience) => (
-						<ExperienceItem experience={experience} />
+					{user.experience?.map((experience) => (
+						<ExperienceItem
+							experience={experience}
+							key={experience.id}
+						/>
 					))}
-				</View> */}
+				</View>
 			</View>
 		</ScrollView>
 	)
@@ -109,7 +112,7 @@ const styles = StyleSheet.create({
 	title: {
 		fontSize: 24,
 		fontWeight: 'bold',
-		marginVertical: 15,
+		marginTop: 15,
 	},
 	text: {
 		fontSize: 16,
