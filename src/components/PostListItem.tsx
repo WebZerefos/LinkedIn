@@ -1,7 +1,8 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { FontAwesome } from '@expo/vector-icons'
 import { Post } from '../types'
+import { Link } from 'expo-router'
 
 type PostListItemProps = {
 	post: Post
@@ -26,44 +27,49 @@ const FooterButton = ({ text, icon }: FooterButtonProps) => {
 
 const PostListItem = ({ post }: PostListItemProps) => {
 	return (
-		<View style={styles.container}>
-			{/* Header */}
-			<View style={styles.header}>
-				<Image
-					source={{ uri: post.author.image }}
-					style={styles.userImage}
-				/>
-				<View>
-					<Text style={styles.userName}>{post.author.name}</Text>
-					<Text>{post.author.position}</Text>
+		<Link
+			href={`/posts/${post.id}`}
+			asChild
+		>
+			<Pressable style={styles.container}>
+				{/* Header */}
+				<View style={styles.header}>
+					<Image
+						source={{ uri: post.author.image }}
+						style={styles.userImage}
+					/>
+					<View>
+						<Text style={styles.userName}>{post.author.name}</Text>
+						<Text>{post.author.position}</Text>
+					</View>
 				</View>
-			</View>
-			{/* post content */}
-			<Text style={styles.postContent}>{post.content}</Text>
-			{/* post image */}
-			{post.image && (
-				<Image
-					source={{ uri: post.image }}
-					style={styles.postImage}
-				/>
-			)}
+				{/* post content */}
+				<Text style={styles.postContent}>{post.content}</Text>
+				{/* post image */}
+				{post.image && (
+					<Image
+						source={{ uri: post.image }}
+						style={styles.postImage}
+					/>
+				)}
 
-			{/* footer */}
-			<View style={styles.footerContainer}>
-				<FooterButton
-					text='Like'
-					icon='thumbs-o-up'
-				/>
-				<FooterButton
-					text='Comment'
-					icon='comment-o'
-				/>
-				<FooterButton
-					text='share'
-					icon='share'
-				/>
-			</View>
-		</View>
+				{/* footer */}
+				<View style={styles.footerContainer}>
+					<FooterButton
+						text='Like'
+						icon='thumbs-o-up'
+					/>
+					<FooterButton
+						text='Comment'
+						icon='comment-o'
+					/>
+					<FooterButton
+						text='share'
+						icon='share'
+					/>
+				</View>
+			</Pressable>
+		</Link>
 	)
 }
 
@@ -72,6 +78,9 @@ export default PostListItem
 const styles = StyleSheet.create({
 	container: {
 		backgroundColor: '#ffffff',
+		width: '100%',
+		maxWidth: 500,
+		alignSelf: 'center',
 	},
 	header: {
 		flexDirection: 'row',
