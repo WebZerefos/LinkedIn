@@ -38,15 +38,15 @@ export default function TabLayout() {
 					),
 					headerRight: () => (
 						<Link
-							href='/modal'
+							href='/search'
 							asChild
 						>
 							<Pressable>
 								{({ pressed }) => (
 									<FontAwesome
-										name='info-circle'
-										size={25}
-										color={Colors[colorScheme ?? 'light'].text}
+										name='search'
+										size={20}
+										color={'gray'}
 										style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
 									/>
 								)}
